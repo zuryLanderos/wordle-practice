@@ -1,7 +1,9 @@
-import { fromEvent } from "rxjs";
+import { Subject, fromEvent } from "rxjs";
+import WORDS_LIST from './wordslist.json';
 
 // observable para teclado
 const onKeyDownObservable$ = fromEvent(document, "keydown");
+const userWinOrLoose$ = new Subject();
 
 // deteccion de document div letter
 const letterRows = document.getElementsByClassName("letter-row");
@@ -13,6 +15,9 @@ let letterCol = 0;
 //palabra
 let userAnswer = [];
 
+const getRandom = () => WORDS_LIST[ Math.floor( Math.random() * WORDS_LIST.length) ]
+const rightWord = getRandom();
+
 
 onKeyDownObservable$.subscribe({
   next: (value) => {
@@ -20,7 +25,7 @@ onKeyDownObservable$.subscribe({
     if (value.code === "Delete" || value.code == "Backspace") {
       deleteLetter();
     } else if (value.code === "Enter") {
-      deleteLetter();
+      validateWord();
     } else if (value.key?.length == 1 && value.key?.match(/[a-z]/i)) {
       //solo debe aceptar letras
       setLetter(value.key);
@@ -28,6 +33,11 @@ onKeyDownObservable$.subscribe({
       console.log("solo letras");
     }
   },
+});
+
+userWinOrLoose$.subscribe(() => {
+  let winnerWord = Array.from(letterRows)[letterRow]
+  console.log(winnerWord);
 });
 
 function deleteLetter() {
@@ -45,5 +55,14 @@ function setLetter(key) {
   if (letterCol === 5) {
     letterCol = 0;
     letterRow++;
+  }
+  userAnswer.push(key);
+}
+
+function validateWord(){
+  console.log({rightWord});
+  console.log({userAnswer});
+  if( userAnswer.join('') === rightWord ) {
+    userWinOrLoose$.next();
   }
 }
