@@ -50,18 +50,27 @@ body {
 }
 
 .letter-grey {
+  transform: rotateY(180deg) scaleX(-1);
   background-color: var(--blue-light);
   border: 0.1rem solid var(--blue-light);
+  transition: transform .5s linear, background-color .5s linear,  border .5s linear;
+  direction: rtl;
 }
 
 .letter-green {
-  background-color: var(--green);
+  transform: rotateY(180deg) scaleX(-1);
   border: 0.1rem solid var(--green);
+  background-color: var(--green);
+  transition: transform .5s linear, background-color .5s linear,  border .5s linear;
+  direction: rtl;
 }
 
 .letter-yellow {
+  transform: rotateY(180deg) scaleX(-1);
   background-color: var(--yellow);
   border: 0.1rem solid var(--yellow);
+  transition: transform .5s linear, background-color .5s linear,  border .5s linear;
+  direction: rtl;
 }
 
 .message-container {
@@ -115,4 +124,21 @@ body {
   50% {
     transform: scale(1.1);
   }
+}
+
+table{
+  color: white;
+}
+
+#teclado-contianer{
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.letra{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
 }
