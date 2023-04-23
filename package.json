@@ -9,9 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack --mode=development",
     "predeploy": "npm run build",
-    "deploy": "npm run build && gh-pages -d dist"
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
