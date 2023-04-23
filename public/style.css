@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 :root {
   --gray: #7d7d7d;
   --blue-dark: #0b1120;
@@ -17,6 +17,8 @@ body {
 }
 
 .web-title {
+  font-family: 'Courgette', cursive;
+  font-size: 40px;
   text-align: center;
   color: white;
 }
@@ -98,18 +100,18 @@ body {
 
 .restart-button {
   cursor: pointer;
-  background-color: var(--green);
+  background-color: #2563eb;
+  color: white;
   border-radius: 10px;
   font-size: 1.4rem;
   padding: 0.5rem 2rem;
   font-family: var(--inter-font);
   border: 0;
-  transition: box-shadow 300ms ease;
-  box-shadow: 0px 0px 20px 5px var(--green-transparent-dark);
+  transition: box-shadow 300ms ease, background-color 1s ease-out;
 }
 
 .restart-button:hover {
-  box-shadow: 0px 0px 20px 5px var(--green-transparent-light);
+  box-shadow: 0px 0px 20px 5px #113281;
 }
 
 .restart-button:disabled {
@@ -138,7 +140,41 @@ table{
 }
 
 .letra{
-  margin-left: 20px;
-  margin-right: 20px;
   padding: 10px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.restar-text{
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+}
+
+.restar-text span{
+  margin-left: 5px;
+  transition: transform 1s ease-in-out;
+}
+
+.rotate-icon{
+  transform: rotateZ(360deg);
+}
+
+.teclado-row{
+  margin-top: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+@media only screen and (max-width: 760px) {
+  /* Estilos para dispositivos móviles */
+  h1 {
+    margin: 0;
+  }
 }
