@@ -1,1 +1,1 @@
-# wordle-practice
+# wordle-practice-rxjs
